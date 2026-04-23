@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Messages For The Dead</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{
+background:#0f1117;
+}
+
+.guestbook{
+max-width:850px;
+margin:40px auto;
+background:#1b1f27;
+padding:35px;
+border:1px solid #5a6070;
+border-radius:12px;
+box-shadow:0 0 25px rgba(140,130,200,.12);
+}
+
+.guestbook h1{
+text-align:center;
+margin-bottom:8px;
+}
+
+.subtitle{
+text-align:center;
+opacity:.8;
+margin-bottom:30px;
+}
+
+.dead-form{
+background:#11151c;
+padding:20px;
+border:1px solid #3e4655;
+margin-bottom:30px;
+}
+
+.dead-form input,
+.dead-form textarea{
+width:100%;
+box-sizing:border-box;
+margin-bottom:12px;
+padding:12px;
+background:#090c10;
+color:#d7d4ef;
+border:1px solid #4f5966;
+font-family:monospace;
+}
+
+.dead-form textarea{
+height:140px;
+resize:vertical;
+}
+
+.dead-form button{
+padding:12px 18px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.message{
+background:#161b22;
+padding:18px;
+margin-bottom:18px;
+border-left:4px solid #6d78a3;
+}
+
+.author{
+font-weight:bold;
+margin-bottom:6px;
+}
+
+.timestamp{
+font-size:12px;
+opacity:.65;
+margin-bottom:10px;
+}
+
+.backlink{
+display:inline-block;
+margin-top:25px;
+}
+</style>
+</head>
+<body>
+
+<div class="guestbook">
+
+<h1>MESSAGES FOR THE DEAD</h1>
+<p class="subtitle">
+Leave an anonymous transmission from beyond.
+</p>
+
+<div class="dead-form">
+<input id="name" placeholder="Anonymous Spirit (optional)">
+
+<textarea
+id="message"
+placeholder="Transmit your grievance...">
+</textarea>
+
+<button onclick="sendMessage()">
+Transmit To The Void
+</button>
+</div>
+
+<div id="messages"></div>
+
+<a class="backlink" href="index.html">
+← Return To Cemetery Broadcast
+</a>
+
+</div>
+
+<script type="module">
+import { createClient }
+from 'https://esm.sh/@supabase/supabase-js'
+
+/* PUT YOUR SUPABASE INFO HERE */
+const supabaseUrl='https://hzbfjrsnqgznssjstpnk.supabase.co/rest/v1/';
+const supabaseKey='hzbfjrsnqgznssjstpnk';
+
+const supabase=createClient(
+supabaseUrl,
+supabaseKey
+);
+
+async function loadMessages(){
+
+const {data,error}=await supabase
+.from('ghost_messages')
+.select('*')
+.order('created_at',{ascending:false});
+
+if(error){
+console.error(error);
+return;
+}
+
+const container=
+document.getElementById('messages');
+
+container.innerHTML='';
+
+data.forEach(msg=>{
+
+container.innerHTML+=`
+<div class="message">
+<div class="author">
+${msg.name || 'Anonymous Spirit'}
+</div>
+
+<div class="timestamp">
+${new Date(msg.created_at)
+.toLocaleString()}
+</div>
+
+<div>
+${msg.message}
+</div>
+</div>
+`;
+
+});
+}
+
+window.sendMessage=async function(){
+
+const name=
+document.getElementById('name').value.trim();
+
+const message=
+document.getElementById('message').value.trim();
+
+if(!message){
+alert('The dead demand a message.');
+return;
+}
+
+await supabase
+.from('ghost_messages')
+.insert([
+{
+name:name||'Anonymous Spirit',
+message:message
+}
+]);
+
+document.getElementById('message').value='';
+
+loadMessages();
+}
+
+loadMessages();
+</script>
+
+</body>
+</html>
