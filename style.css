@@ -1,0 +1,48 @@
+body{
+background:#cfcfcf;
+font-family:Tahoma,Verdana,sans-serif;
+margin:0;
+}
+
+#site{
+width:900px;
+margin:20px auto;
+background:#ddd;
+border:4px ridge white;
+}
+
+header{
+background:darkred;
+color:yellow;
+text-align:center;
+padding:20px;
+text-shadow:2px 2px black;
+}
+
+.sidebar{
+float:left;
+width:220px;
+padding:20px;
+background:#bbb;
+}
+
+main{
+margin-left:260px;
+padding:20px;
+}
+
+.post{
+background:white;
+border:3px ridge #999;
+padding:15px;
+margin-bottom:20px;
+}
+
+a{
+color:blue;
+font-weight:bold;
+}
+
+a:hover{
+color:red;
+}
