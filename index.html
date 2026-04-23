@@ -10,133 +10,147 @@
 <div id="site">
 
 <header>
+<img src="logo.png" class="grave-logo" alt="Podcast Logo">
+
 <h1>I HATE EVERYTHING<br>(AND SO SHOULD YOU!)</h1>
-<p>broadcasting grievances since 2000½</p>
+<p>broadcasting grievances from beyond the grave</p>
+
+<div class="moon-divider">☾────────────✦────────────☽</div>
 </header>
 
 <div class="sidebar">
-<h3>NAVIGATION</h3>
+<h3>CEMETERY MAP</h3>
 <a href="#">Home</a><br>
-<a href="#">Archives</a><br>
-<a href="#">Complaint Hotline</a><br>
-<a href="#">Guest Hate Mail</a>
+<a href="#">Burial Archives</a><br>
+<a href="#">Séance Hotline</a><br>
+<a href="#">Messages For The Dead</a>
 
-<h3>Currently Hating</h3>
+<h3>Currently Haunting</h3>
 <ul>
 <li>Minimalist logos</li>
 <li>Companies</li>
+<li>The living</li>
 </ul>
+
+<div class="grave-plaque">
+Midnight Broadcast Relay
+<br>
+Established 2000½
+</div>
 </div>
 
 <main>
 
 <div class="post">
 <h2>Episode 01 — I Hate Emails.</h2>
+
 <p>
 A Deep-End Dive into Email Addresses and how much I hate them
 </p>
 
 <audio id="player1">
-  <source src="Ep1EMAILS.mp3" type="audio/mpeg">
+<source src="Ep1EMAILS.mp3" type="audio/mpeg">
 </audio>
 
 <div class="win95-player">
 
 <div class="titlebar">
-Broadcast Player v1.0
+Necro Broadcast Terminal v1.0
 </div>
 
 <div class="controls">
 <button onclick="player1.play()">▶ Play</button>
-
 <button onclick="player1.pause()">■ Stop</button>
-
 <button onclick="player1.currentTime=0; player1.play()">
 ↺ Rewind
 </button>
+</div>
 
 <div class="time">
-TIME: <span id="time1">0:00</span> / <span id="len1">--:--</span>
-</div>
-  
+TIME: <span id="time1">0:00</span> /
+<span id="len1">--:--</span>
 </div>
 
 <div class="status">
-NOW PLAYING:
-EMAILS.mp3
+NOW PLAYING: EMAILS.mp3
+<span class="signal">SIGNAL FROM THE VOID: STABLE</span>
 </div>
 
 </div>
-
 </div>
 
 <div class="post">
 <h2>Episode 02 — I Hate Companies.</h2>
+
 <p>
 A Deep-End Dive into Various Companies and how much I hate them
 </p>
 
 <audio id="player2">
-  <source src="Ep2COMPANIES.mp3" type="audio/mpeg">
+<source src="Ep2COMPANIES.mp3" type="audio/mpeg">
 </audio>
 
 <div class="win95-player">
 
 <div class="titlebar">
-Broadcast Player v1.0
+Necro Broadcast Terminal v1.0
 </div>
 
 <div class="controls">
 <button onclick="player2.play()">▶ Play</button>
-
 <button onclick="player2.pause()">■ Stop</button>
-
 <button onclick="player2.currentTime=0; player2.play()">
 ↺ Rewind
 </button>
 </div>
 
 <div class="time">
-TIME: <span id="time2">0:00</span> / <span id="len2">--:--</span>
+TIME: <span id="time2">0:00</span> /
+<span id="len2">--:--</span>
 </div>
 
 <div class="status">
-NOW PLAYING:
-COMPANIES.mp3
+NOW PLAYING: COMPANIES.mp3
+<span class="signal">SIGNAL FROM THE VOID: STABLE</span>
 </div>
 
 </div>
-
+</div>
 
 </main>
-
 </div>
 
-  <script>
+<script>
 const player1 = document.getElementById("player1");
 const player2 = document.getElementById("player2");
 
-function formatTime(sec) {
-    if (isNaN(sec)) return "--:--";
-    const m = Math.floor(sec / 60);
-    const s = Math.floor(sec % 60);
-    return m + ":" + (s < 10 ? "0" + s : s);
+function formatTime(sec){
+if(isNaN(sec)) return "--:--";
+const m=Math.floor(sec/60);
+const s=Math.floor(sec%60);
+return m+":"+(s<10?"0"+s:s);
 }
 
-player1.addEventListener("loadedmetadata", () => {
-    document.getElementById("len1").textContent = formatTime(player1.duration);
-  });
-player1.addEventListener("timeupdate", () => {
-    document.getElementById("time1").textContent = formatTime(player1.currentTime);
+player1.addEventListener("loadedmetadata",()=>{
+document.getElementById("len1").textContent=
+formatTime(player1.duration);
 });
 
-player2.addEventListener("loadedmetadata", () => {
-    document.getElementById("len2").textContent = formatTime(player2.duration);
-  });
-player2.addEventListener("timeupdate", () => {
-    document.getElementById("time2").textContent = formatTime(player2.currentTime);
+player1.addEventListener("timeupdate",()=>{
+document.getElementById("time1").textContent=
+formatTime(player1.currentTime);
+});
+
+player2.addEventListener("loadedmetadata",()=>{
+document.getElementById("len2").textContent=
+formatTime(player2.duration);
+});
+
+player2.addEventListener("timeupdate",()=>{
+document.getElementById("time2").textContent=
+formatTime(player2.currentTime);
 });
 </script>
-  
+
 </body>
 </html>
