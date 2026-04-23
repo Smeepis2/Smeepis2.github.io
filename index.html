@@ -37,16 +37,31 @@ A Deep-End Dive into Email Addresses and how much I hate them
 </p>
 
 <audio id="player">
-  <source src="audio/Ep1EMAILS.mp3" type="audio/mpeg">
+  <source src="Ep1EMAILS.mp3" type="audio/mpeg">
 </audio>
 
-<button onclick="document.getElementById('player').play()">
-▶ PLAY
-</button>
+<div class="win95-player">
 
-<button onclick="document.getElementById('player').pause()">
-■ STOP
+<div class="titlebar">
+Broadcast Player v1.0
+</div>
+
+<div class="controls">
+<button onclick="player.play()">▶ Play</button>
+
+<button onclick="player.pause()">■ Stop</button>
+
+<button onclick="player.currentTime=0; player.play()">
+↺ Rewind
 </button>
+</div>
+
+<div class="status">
+NOW PLAYING:
+EMAILS.mp3
+</div>
+
+</div>
 
 </div>
 
@@ -57,16 +72,29 @@ A Deep-End Dive into Various Companies and how much I hate them
 </p>
 
 <audio id="player">
-  <source src="audio/Ep2COMPANIES.mp3" type="audio/mpeg">
+  <source src="Ep2COMPANIES" type="audio/mpeg">
 </audio>
 
-<button onclick="document.getElementById('player').play()">
-▶ PLAY
-</button>
+<div class="win95-player">
 
-<button onclick="document.getElementById('player').pause()">
-■ STOP
+<div class="titlebar">
+Broadcast Player v1.0
+</div>
+
+<div class="controls">
+<button onclick="player.play()">▶ Play</button>
+
+<button onclick="player.pause()">■ Stop</button>
+
+<button onclick="player.currentTime=0; player.play()">
+↺ Rewind
 </button>
+</div>
+
+<div class="status">
+NOW PLAYING:
+COMPANIES.mp3
+</div>
 
 </div>
 
