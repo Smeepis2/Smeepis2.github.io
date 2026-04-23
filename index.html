@@ -54,6 +54,11 @@ Broadcast Player v1.0
 <button onclick="player1.currentTime=0; player1.play()">
 ↺ Rewind
 </button>
+
+<div class="time">
+LENGTH: <span id="len1">--:--</span>
+</div>
+  
 </div>
 
 <div class="status">
@@ -91,6 +96,10 @@ Broadcast Player v1.0
 </button>
 </div>
 
+<div class="time">
+LENGTH: <span id="len2">--:--</span>
+</div>
+
 <div class="status">
 NOW PLAYING:
 COMPANIES.mp3
@@ -102,5 +111,26 @@ COMPANIES.mp3
 </main>
 
 </div>
+
+  <script>
+const player1 = document.getElementById("player1");
+const player2 = document.getElementById("player2");
+
+function formatTime(sec) {
+    if (isNaN(sec)) return "--:--";
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60);
+    return m + ":" + (s < 10 ? "0" + s : s);
+}
+
+player1.addEventListener("loadedmetadata", () => {
+    document.getElementById("len1").textContent = formatTime(player1.duration);
+});
+
+player2.addEventListener("loadedmetadata", () => {
+    document.getElementById("len2").textContent = formatTime(player2.duration);
+});
+</script>
+  
 </body>
 </html>
