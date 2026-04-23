@@ -93,3 +93,8 @@ color:#00ff00;
 padding:8px;
 font-family:monospace;
 }
+
+.win95-player{
+margin-top:15px;
+box-shadow:2px 2px 0 #666;
+}
