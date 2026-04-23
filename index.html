@@ -83,7 +83,7 @@ NOW PLAYING: EMAILS.mp3
 <h2>Episode 02 — I Hate Companies.</h2>
 
 <p>
-A Deep-End Dive into Various Companies and how much I hate them
+A Deep-End Dive into Various Companies, and how much I hate them
 </p>
 
 <audio id="player2">
@@ -115,6 +115,43 @@ NOW PLAYING: COMPANIES.mp3
 </div>
 
 </div>
+
+<div class="post">
+<h2>Episode 03 — I Hate Facebook Marketplace.</h2>
+
+<p>
+A Deep-End Dive into Facebook Marketplace, and why I hate it.
+</p>
+
+<audio id="player3">
+<source src="Ep3FACEBOOKMARKET.mp3" type="audio/mpeg">
+</audio>
+
+<div class="win95-player">
+
+<div class="titlebar">
+Necro Broadcast Terminal v1.0
+</div>
+
+<div class="controls">
+<button onclick="player3.play()">▶ Play</button>
+<button onclick="player3.pause()">■ Stop</button>
+<button onclick="player3.currentTime=0; player3.play()">
+↺ Rewind
+</button>
+</div>
+
+<div class="time">
+TIME: <span id="time3">0:00</span> /
+<span id="len3">--:--</span>
+</div>
+
+<div class="status">
+NOW PLAYING: FACEBOOKMARKET.mp3
+<span class="signal">SIGNAL FROM THE COFFIN: STABLE</span>
+</div>
+
+</div>
 </div>
 
 </main>
@@ -123,6 +160,7 @@ NOW PLAYING: COMPANIES.mp3
 <script>
 const player1 = document.getElementById("player1");
 const player2 = document.getElementById("player2");
+const player3 = document.getElementById("player3");
 
 function formatTime(sec){
 if(isNaN(sec)) return "--:--";
@@ -149,6 +187,16 @@ formatTime(player2.duration);
 player2.addEventListener("timeupdate",()=>{
 document.getElementById("time2").textContent=
 formatTime(player2.currentTime);
+});
+
+player3.addEventListener("loadedmetadata",()=>{
+document.getElementById("len3").textContent=
+formatTime(player3.duration);
+});
+
+player3.addEventListener("timeupdate",()=>{
+document.getElementById("time3").textContent=
+formatTime(player3.currentTime);
 });
 </script>
 
