@@ -123,12 +123,18 @@ function formatTime(sec) {
     return m + ":" + (s < 10 ? "0" + s : s);
 }
 
+player1.addEventListener("loadedmetadata", () => {
+    document.getElementById("len1").textContent = formatTime(player1.duration);
+  });
 player1.addEventListener("timeupdate", () => {
     document.getElementById("time1").textContent = formatTime(player1.currentTime);
 });
 
-player1.addEventListener("timeupdate", () => {
-    document.getElementById("time2").textContent = formatTime(player1.currentTime);
+player2.addEventListener("loadedmetadata", () => {
+    document.getElementById("len2").textContent = formatTime(player2.duration);
+  });
+player2.addEventListener("timeupdate", () => {
+    document.getElementById("time2").textContent = formatTime(player2.currentTime);
 });
 </script>
   
