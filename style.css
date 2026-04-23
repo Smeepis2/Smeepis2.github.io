@@ -68,22 +68,23 @@ margin-bottom:12px;
 
 .controls button{
 background:#c0c0c0;
-border-top:2px solid white;
-border-left:2px solid white;
-border-right:2px solid #444;
-border-bottom:2px solid #444;
+border-top:2px solid #fff;
+border-left:2px solid #fff;
+border-right:2px solid #808080;
+border-bottom:2px solid #808080;
+box-shadow:1px 1px 0 #000;
 padding:8px 14px;
 margin-right:8px;
-font-family:Tahoma;
 font-weight:bold;
 cursor:pointer;
 }
 
 .controls button:active{
-border-top:2px solid #444;
-border-left:2px solid #444;
-border-right:2px solid white;
-border-bottom:2px solid white;
+border-top:2px solid #808080;
+border-left:2px solid #808080;
+border-right:2px solid #fff;
+border-bottom:2px solid #fff;
+box-shadow:none;
 }
 .status{
 margin-top:12px;
