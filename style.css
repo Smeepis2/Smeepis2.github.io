@@ -46,3 +46,49 @@ font-weight:bold;
 a:hover{
 color:red;
 }
+
+.win95-player{
+background:#c0c0c0;
+border-top:3px solid white;
+border-left:3px solid white;
+border-right:3px solid #444;
+border-bottom:3px solid #444;
+padding:12px;
+width:420px;
+font-family:Tahoma, sans-serif;
+}
+
+.titlebar{
+background:navy;
+color:white;
+padding:5px;
+font-weight:bold;
+margin-bottom:12px;
+}
+
+.controls button{
+background:#c0c0c0;
+border-top:2px solid white;
+border-left:2px solid white;
+border-right:2px solid #444;
+border-bottom:2px solid #444;
+padding:8px 14px;
+margin-right:8px;
+font-family:Tahoma;
+font-weight:bold;
+cursor:pointer;
+}
+
+.controls button:active{
+border-top:2px solid #444;
+border-left:2px solid #444;
+border-right:2px solid white;
+border-bottom:2px solid white;
+}
+.status{
+margin-top:12px;
+background:black;
+color:#00ff00;
+padding:8px;
+font-family:monospace;
+}
